@@ -131,19 +131,24 @@ def par_complementario(l):
 	pass
 
 def es_literal(f):
-	# Esta función determina si el árbol f es un literal
-	# Input: f, una fórmula como árbol
-	# Output: True/False
-
-	pass
+	if(f.right==None):
+        	return True
+    	elif(f.label =='-'):
+        	if( f.right.right==None):
+            		return True
+        	else:
+            		return False
+       
+   	 else:
+       		return False
 
 def no_literales(l):
-	# Esta función determina si una lista de fórmulas contiene
-	# solo literales
-	# Input: l, una lista de fórmulas como árboles
-	# Output: None/f, tal que f no es literal
-
-	pass
+	for i in l:
+        	if(es_literal(i)==False):
+            		return Inorder(i) #quitar el inorder?
+       
+    	return None   #solo hay literales
+	
 
 def clasificacion(f):
 	# clasifica una fórmula como alfa o beta
