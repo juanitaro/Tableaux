@@ -99,8 +99,14 @@ def imprime_listaHojas(L):
 
 def complemento(l):
 	# Esta función devuelve el complemento de un literal
-	# Input: l, un literal
-	# Output: x, un literal
+	# Input: l, un tree
+	# Output: x, un tree
+	
+	if l.label == '-':
+		return l.right;
+	else:
+		x =  Tree('-',None,l)
+		return x
 
 	pass
 
@@ -109,6 +115,18 @@ def par_complementario(l):
 	# contiene un par complementario
 	# Input: l, una lista de literales
 	# Output: True/False
+	
+	for i in l:
+		for j in l:
+			if (complemento(i).label==j.label):
+				if(complemento(i).label =='-'):
+					if(complemento(i).right.label==j.right.label):
+						return True
+			elif (complemento(j).label==i.label):
+				if(complemento(j).label =='-'):
+					if(complemento(j).right.label==i.right.label):
+						return True
+	return False
 
 	pass
 
